@@ -33,4 +33,12 @@ export const languages: LanguageInfo[] = [
     color: 'hsl(45 93% 47%)',
     gradient: 'gradient-german',
   },
+  {
+    id: 'hindi',
+    name: 'Hindi',
+    nativeName: 'हिन्दी',
+    flag: '🇮🇳',
+    color: 'hsl(27 87% 57%)',
+    gradient: 'gradient-hindi',
+  },
 ];

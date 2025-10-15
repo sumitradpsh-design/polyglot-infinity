@@ -219,6 +219,50 @@ export const getLessonsForLanguage = (language: Language): Unit[] => {
         ],
       },
     ],
+    hindi: [
+      {
+        id: 'hindi-unit-1',
+        title: 'बुनियादी बातें',
+        description: 'Learn basic Hindi',
+        requiredXp: 0,
+        lessons: [
+          {
+            id: 'hindi-lesson-1',
+            title: 'अभिवादन',
+            description: 'Greetings in Hindi',
+            unitId: 'hindi-unit-1',
+            xpReward: 10,
+            isCompleted: false,
+            isLocked: false,
+            exercises: [
+              {
+                id: 'ex-h1',
+                type: 'multiple-choice',
+                question: 'How do you say "Hello"?',
+                options: ['नमस्ते', 'धन्यवाद', 'अलविदा', 'कृपया'],
+                correctAnswer: 'नमस्ते',
+                translation: 'Namaste',
+              },
+              {
+                id: 'ex-h2',
+                type: 'translation',
+                question: 'Translate: Thank you',
+                correctAnswer: 'धन्यवाद',
+                translation: 'Dhanyavaad',
+              },
+              {
+                id: 'ex-h3',
+                type: 'multiple-choice',
+                question: 'What does "आप कैसे हैं?" mean?',
+                options: ['How are you?', 'What is your name?', 'Goodbye', 'Thank you'],
+                correctAnswer: 'How are you?',
+                translation: 'Aap kaise hain?',
+              },
+            ],
+          },
+        ],
+      },
+    ],
   };
 
   return lessonsData[language] || [];

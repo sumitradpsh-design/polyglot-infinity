@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import LanguageSelect from "./pages/LanguageSelect";
 import Learn from "./pages/Learn";
 import Lesson from "./pages/Lesson";
+import AIMentor from "./pages/AIMentor";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/languages" element={<LanguageSelect />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/lesson/:lessonId" element={<Lesson />} />
+          <Route path="/ai-mentor" element={<AIMentor />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -43,6 +43,7 @@ All colors MUST be HSL.
     --french: 221 83% 53%;
     --japanese: 338 86% 58%;
     --german: 45 93% 47%;
+    --hindi: 27 87% 57%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 50%));
@@ -50,6 +51,7 @@ All colors MUST be HSL.
     --gradient-french: linear-gradient(135deg, hsl(221 83% 53%), hsl(221 83% 63%));
     --gradient-japanese: linear-gradient(135deg, hsl(338 86% 58%), hsl(338 86% 68%));
     --gradient-german: linear-gradient(135deg, hsl(45 93% 47%), hsl(45 93% 57%));
+    --gradient-hindi: linear-gradient(135deg, hsl(27 87% 57%), hsl(27 87% 67%));
     --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 50%));
     
     /* Animations */

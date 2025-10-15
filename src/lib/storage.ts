@@ -42,6 +42,15 @@ export const getStoredProgress = (): Record<Language, UserProgress> => {
         completedLessons: [],
         achievements: [],
       },
+      hindi: {
+        language: 'hindi',
+        xp: 0,
+        level: 1,
+        streak: 0,
+        lastActive: new Date().toISOString(),
+        completedLessons: [],
+        achievements: [],
+      },
     };
     return defaultProgress;
   }

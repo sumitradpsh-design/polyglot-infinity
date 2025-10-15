@@ -5,7 +5,7 @@ import { LessonCard } from '@/components/LessonCard';
 import { languages } from '@/data/languages';
 import { getLessonsForLanguage } from '@/data/lessons';
 import { getCurrentLanguage, getStoredProgress } from '@/lib/storage';
-import { ArrowLeft, Trophy, Flame, Target } from 'lucide-react';
+import { ArrowLeft, Trophy, Flame, Target, Sparkles } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
@@ -85,6 +85,20 @@ const Learn = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* AI Mentor */}
+            <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+              <Button
+                onClick={() => navigate('/ai-mentor')}
+                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
+              >
+                <Sparkles className="w-4 h-4 mr-2" />
+                AI Language Mentor
+              </Button>
+              <p className="text-xs text-muted-foreground mt-2 text-center">
+                Practice with Gemini AI
+              </p>
+            </Card>
+
             {/* Daily Goal */}
             <Card className="p-6">
               <div className="flex items-center gap-2 mb-4">
