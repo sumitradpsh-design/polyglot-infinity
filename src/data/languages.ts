@@ -41,4 +41,12 @@ export const languages: LanguageInfo[] = [
     color: 'hsl(27 87% 57%)',
     gradient: 'gradient-hindi',
   },
+  {
+    id: 'english',
+    name: 'English',
+    nativeName: 'English',
+    flag: '🇬🇧',
+    color: 'hsl(215 100% 50%)',
+    gradient: 'gradient-english',
+  },
 ];

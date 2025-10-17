@@ -1,4 +1,4 @@
-export type Language = 'spanish' | 'french' | 'japanese' | 'german' | 'hindi';
+export type Language = 'spanish' | 'french' | 'japanese' | 'german' | 'hindi' | 'english';
 
 export interface LanguageInfo {
   id: Language;

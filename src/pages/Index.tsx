@@ -24,8 +24,8 @@ const Index = () => {
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Experience the most engaging way to learn Spanish, French, Japanese, and German.
-              100x better than traditional methods.
+              Experience the most engaging way to learn Spanish, French, Japanese, German, Hindi, and English.
+              Master any language from A1 to C2 proficiency.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -100,16 +100,18 @@ const Index = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Choose Your Language</h2>
           <p className="text-xl text-muted-foreground">
-            Start with any of our 4 carefully crafted courses
+            Start with any of our 6 comprehensive courses
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {[
             { name: 'Spanish', flag: '🇪🇸', gradient: 'gradient-spanish' },
             { name: 'French', flag: '🇫🇷', gradient: 'gradient-french' },
             { name: 'Japanese', flag: '🇯🇵', gradient: 'gradient-japanese' },
             { name: 'German', flag: '🇩🇪', gradient: 'gradient-german' },
+            { name: 'Hindi', flag: '🇮🇳', gradient: 'gradient-hindi' },
+            { name: 'English', flag: '🇬🇧', gradient: 'gradient-english' },
           ].map((language, index) => (
             <Card
               key={index}

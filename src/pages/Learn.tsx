@@ -5,6 +5,7 @@ import { LessonCard } from '@/components/LessonCard';
 import { languages } from '@/data/languages';
 import { getLessonsForLanguage } from '@/data/lessons';
 import { getCurrentLanguage, getStoredProgress } from '@/lib/storage';
+import { needsDailyTest } from '@/lib/tracker';
 import { ArrowLeft, Trophy, Flame, Target, Sparkles } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -14,6 +15,7 @@ const Learn = () => {
   const [currentLanguage, setCurrentLanguage] = useState(getCurrentLanguage());
   const [units, setUnits] = useState(getLessonsForLanguage(currentLanguage));
   const progress = getStoredProgress()[currentLanguage];
+  const requiresDailyTest = needsDailyTest(currentLanguage);
   
   const languageInfo = languages.find(l => l.id === currentLanguage);
   const dailyGoalProgress = (progress.xp % 20) * 5;
@@ -85,6 +87,27 @@ const Learn = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Daily Test Alert */}
+            {requiresDailyTest && (
+              <Card className="p-6 border-2 border-orange-500 bg-orange-500/10 animate-pulse">
+                <div className="flex items-start gap-3 mb-3">
+                  <Target className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-lg mb-1">Daily Test Required!</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Complete today's test to maintain your {progress.streak} day streak 🔥
+                    </p>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => navigate('/daily-test')}
+                  className="w-full bg-orange-500 hover:bg-orange-600"
+                >
+                  Start Test Now
+                </Button>
+              </Card>
+            )}
+
             {/* AI Mentor */}
             <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
               <Button
