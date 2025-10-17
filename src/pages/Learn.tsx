@@ -6,7 +6,7 @@ import { languages } from '@/data/languages';
 import { getLessonsForLanguage } from '@/data/lessons';
 import { getCurrentLanguage, getStoredProgress } from '@/lib/storage';
 import { needsDailyTest } from '@/lib/tracker';
-import { ArrowLeft, Trophy, Flame, Target, Sparkles } from 'lucide-react';
+import { ArrowLeft, Trophy, Flame, Target, Sparkles, Book } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
@@ -108,17 +108,27 @@ const Learn = () => {
               </Card>
             )}
 
-            {/* AI Mentor */}
+            {/* Quick Actions */}
             <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-              <Button
-                onClick={() => navigate('/ai-mentor')}
-                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
-              >
-                <Sparkles className="w-4 h-4 mr-2" />
-                AI Language Mentor
-              </Button>
+              <div className="space-y-3">
+                <Button
+                  onClick={() => navigate('/ai-mentor')}
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
+                >
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  AI Language Mentor
+                </Button>
+                <Button
+                  onClick={() => navigate('/study-guide')}
+                  variant="outline"
+                  className="w-full"
+                >
+                  <Book className="w-4 h-4 mr-2" />
+                  Study Guide
+                </Button>
+              </div>
               <p className="text-xs text-muted-foreground mt-2 text-center">
-                Practice with Gemini AI
+                Practice with Gemini AI or browse resources
               </p>
             </Card>
 

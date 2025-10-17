@@ -9,6 +9,7 @@ import Learn from "./pages/Learn";
 import Lesson from "./pages/Lesson";
 import AIMentor from "./pages/AIMentor";
 import DailyTest from "./pages/DailyTest";
+import StudyGuide from "./pages/StudyGuide";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/lesson/:lessonId" element={<Lesson />} />
           <Route path="/ai-mentor" element={<AIMentor />} />
           <Route path="/daily-test" element={<DailyTest />} />
+          <Route path="/study-guide" element={<StudyGuide />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
