@@ -7,7 +7,8 @@ import { Check, X, Trophy, Target } from 'lucide-react';
 import { getCurrentLanguage, getStoredProgress } from '@/lib/storage';
 import { getLessonsForLanguage } from '@/data/lessons';
 import { getDailyTestQuestions, recordAttempt, recordDailyTest } from '@/lib/tracker';
-import { Exercise, ExerciseType } from '@/types/language';
+import { Exercise, ExerciseType, Language } from '@/types/language';
+import { dailyTestQuestions } from '@/data/dailyTestQuestions';
 import { toast } from 'sonner';
 
 const DailyTest = () => {
@@ -28,23 +29,24 @@ const DailyTest = () => {
   }, []);
 
   const generateTestQuestions = () => {
-    const units = getLessonsForLanguage(currentLanguage);
-    const completedLessons = units
-      .flatMap(u => u.lessons)
-      .filter(l => progress.completedLessons.includes(l.id));
-
-    if (completedLessons.length === 0) {
+    if (progress.completedLessons.length === 0) {
       toast.error('Complete some lessons first!');
       navigate('/learn');
       return;
     }
 
-    const testConfig = getDailyTestQuestions(currentLanguage, 8);
-    const allExercises = completedLessons.flatMap(l => l.exercises);
+    // Use the separate daily test question pool instead of lesson exercises
+    const questionPool = dailyTestQuestions[currentLanguage as Language] || [];
     
-    // Shuffle and select 8 questions
-    const shuffled = [...allExercises].sort(() => Math.random() - 0.5);
-    setTestQuestions(shuffled.slice(0, 8));
+    if (questionPool.length === 0) {
+      toast.error('No daily test questions available yet!');
+      navigate('/learn');
+      return;
+    }
+    
+    // Shuffle and select 8 random questions from the pool
+    const shuffled = [...questionPool].sort(() => Math.random() - 0.5);
+    setTestQuestions(shuffled.slice(0, Math.min(8, shuffled.length)));
   };
 
   const handleAnswer = () => {
