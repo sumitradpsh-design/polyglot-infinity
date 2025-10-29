@@ -276,4 +276,7 @@ export const dailyTestQuestions: Record<Language, Exercise[]> = {
     },
   ],
   french: [],
+  german: [],
+  hindi: [],
+  japanese: [],
 };

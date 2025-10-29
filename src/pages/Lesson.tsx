@@ -54,19 +54,35 @@ const Lesson = () => {
 
   const completeLesson = () => {
     const currentProgress = getStoredProgress()[currentLanguage];
-    const newXP = currentProgress.xp + lesson.xpReward;
+    const updatedCompletedLessons = [...currentProgress.completedLessons, lessonId!];
+    
+    // Check if this completes a unit
+    const currentUnit = units.find(u => u.lessons.some(l => l.id === lessonId));
+    const unitComplete = currentUnit && 
+      currentUnit.lessons.every(l => updatedCompletedLessons.includes(l.id));
+    
+    // Calculate XP: lesson XP + unit bonus if unit is complete
+    const unitBonus = unitComplete ? 50 : 0;
+    const totalXP = lesson.xpReward + unitBonus;
+    const newXP = currentProgress.xp + totalXP;
     const newLevel = Math.floor(newXP / 100) + 1;
     
     updateProgress(currentLanguage, {
       xp: newXP,
       level: newLevel,
-      completedLessons: [...currentProgress.completedLessons, lessonId!],
+      completedLessons: updatedCompletedLessons,
       lastActive: new Date().toISOString(),
     });
 
-    toast.success(`Lesson Complete! +${lesson.xpReward} XP`, {
-      description: `You earned ${lesson.xpReward} XP!`,
-    });
+    if (unitComplete) {
+      toast.success(`Unit Complete! +${totalXP} XP`, {
+        description: `Lesson: ${lesson.xpReward} XP + Unit Bonus: ${unitBonus} XP!`,
+      });
+    } else {
+      toast.success(`Lesson Complete! +${lesson.xpReward} XP`, {
+        description: `You earned ${lesson.xpReward} XP!`,
+      });
+    }
 
     navigate('/learn');
   };
